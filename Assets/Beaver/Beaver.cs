@@ -1,35 +1,38 @@
-﻿using UnityEngine;
-
-/// <summary>
-/// Attach to Beaver Object. Contains all of Beaver's components
-/// </summary>
-public class Beaver : MonoBehaviour
+﻿namespace Assets
 {
-    /// <summary>
-    /// Takes in keyboard input
-    /// </summary>
-    public BeaverInputComponent InputComponent { get; private set; }
+    using UnityEngine;
 
     /// <summary>
-    /// Acts on other objects using InputComponent data
+    /// Attach to Beaver Object. Contains all of Beaver's components 
     /// </summary>
-    public BeaverInteractComponent InteractComponent { get; private set; }
-
-    /// <summary>
-    /// Moves beaver using InputComponent data
-    /// </summary>
-    public BeaverMovementComponent MovementComponent { get; private set; }
-
-    private void Start()
+    public class Beaver : MonoBehaviour
     {
-        MovementComponent = new BeaverMovementComponent(gameObject.GetComponent<Rigidbody>(), gameObject.transform);
-        InputComponent = new BeaverInputComponent();
-        InteractComponent = new BeaverInteractComponent(gameObject.transform);
-    }
+        /// <summary>
+        /// Takes in keyboard input 
+        /// </summary>
+        public BeaverInputComponent InputComponent { get; private set; }
 
-    private void Update()
-    {
-        MovementComponent.UpdateMovement(InputComponent.GetBeaverX(), InputComponent.GetBeaverZ());
-        InteractComponent.CallBehavior(InputComponent.GetActionInput());
+        /// <summary>
+        /// Acts on other objects using InputComponent data 
+        /// </summary>
+        public BeaverInteractComponent InteractComponent { get; private set; }
+
+        /// <summary>
+        /// Moves beaver using InputComponent data 
+        /// </summary>
+        public BeaverMovementComponent MovementComponent { get; private set; }
+
+        private void Start()
+        {
+            MovementComponent = new BeaverMovementComponent(gameObject.GetComponent<Rigidbody>(), gameObject.transform);
+            InputComponent = new BeaverInputComponent();
+            InteractComponent = new BeaverInteractComponent(gameObject.transform);
+        }
+
+        private void Update()
+        {
+            MovementComponent.UpdateMovement(InputComponent.GetBeaverX(), InputComponent.GetBeaverZ());
+            InteractComponent.CallBehavior(InputComponent.GetActionInput());
+        }
     }
 }

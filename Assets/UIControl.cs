@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// UI Control. Takes in input and manipulates UI elements
+/// UI Control. Takes in input and manipulates UI elements 
 /// </summary>
 public class UiControl : MonoBehaviour
 {

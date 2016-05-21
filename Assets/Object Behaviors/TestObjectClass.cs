@@ -1,5 +1,5 @@
 ﻿/// <summary>
-/// Test Object
+/// Test Object 
 /// </summary>
 public class TestObjectClass : BaseInteractableObjectComponent
 {

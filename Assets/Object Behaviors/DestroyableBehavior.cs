@@ -2,21 +2,22 @@
 using UnityEngine;
 
 /// <summary>
-/// Attribute that allows an object to be destroyed
+/// Attribute that allows an object to be destroyed 
 /// </summary>
 public class DestroyableBehavior : BaseBehavior
 {
     /// <summary>
-    /// Default Constructor
+    /// Default Constructor 
     /// </summary>
-    /// <param name="baseGameObject">BaseObject to act upon</param>
-    public DestroyableBehavior(GameObject baseGameObject) : base(baseGameObject)
+    /// <param name="baseGameObject"> BaseObject to act upon </param>
+    public DestroyableBehavior(GameObject baseGameObject)
+        : base(baseGameObject)
     {
-        this.Behavior = BeaverBehaviorsEnum.Destroy;
+        Behavior = BeaverBehaviors.Destroy;
     }
 
     /// <summary>
-    /// Destroys this object
+    /// Destroys this object 
     /// </summary>
     protected override void Execute()
     {
