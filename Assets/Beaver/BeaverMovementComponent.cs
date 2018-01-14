@@ -7,6 +7,7 @@ public class BeaverMovementComponent
 {
     private const float movementSpeed = 5f;
     private const float rotateSpeed = 5f;
+
     private readonly Transform beaverTransform;
     private readonly Quaternion cameraDefaultRotation;
     private readonly Transform cameraTransform;

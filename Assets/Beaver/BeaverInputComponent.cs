@@ -10,7 +10,7 @@ public class BeaverInputComponent
     /// Takes in player input and resolves it to a BeaverAction 
     /// </summary>
     /// <returns> Corresponding BeaverBehaviors </returns>
-    public BeaverBehaviors GetActionInput()
+    public BeaverBehaviors GetAction()
     {
         if (Input.anyKey)
         {

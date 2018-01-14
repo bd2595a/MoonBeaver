@@ -32,7 +32,7 @@
         private void Update()
         {
             MovementComponent.UpdateMovement(InputComponent.GetBeaverX(), InputComponent.GetBeaverZ());
-            InteractComponent.CallBehavior(InputComponent.GetActionInput());
+            InteractComponent.CallBehavior(InputComponent.GetAction());
         }
     }
 }

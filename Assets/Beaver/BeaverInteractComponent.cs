@@ -28,7 +28,7 @@ public class BeaverInteractComponent
         if (beaverBehavior != BeaverBehaviors.None)
         {
             // Can drop an item at any time
-            if (beaverBehavior == BeaverBehaviors.PickUp && PickedUpObject != null)
+            if (beaverBehavior == BeaverBehaviors.PickUp && BeaverAttributesComponent.CarriedObject != null)
             {
                 DropObject();
                 return;
@@ -41,10 +41,6 @@ public class BeaverInteractComponent
                 if (interactObjectBehaviors != null)
                 {
                     var isValidBehavior = interactObjectBehaviors.ExecuteBehaviors(beaverBehavior);
-                    if (isValidBehavior && beaverBehavior == BeaverBehaviors.PickUp)
-                    {
-                        PickUpObject(transformInfront);
-                    }
                 }
             }
         }
@@ -55,11 +51,8 @@ public class BeaverInteractComponent
     /// </summary>
     private void DropObject()
     {
-        if (PickedUpObject != null)
-        {
-            PickedUpObject.parent = null;
-            PickedUpObject = null;
-        }
+        BeaverAttributesComponent.CarriedObject.parent = null;
+        BeaverAttributesComponent.CarriedObject = null;
     }
 
     /// <summary>
@@ -76,15 +69,5 @@ public class BeaverInteractComponent
         }
 
         return null;
-    }
-
-    /// <summary>
-    /// Beaver will pick up the object if it's not already holding it 
-    /// </summary>
-    /// <param name="objectTransform"> Transform of the object to try to pick up </param>
-    private void PickUpObject(Transform objectTransform)
-    {
-        PickedUpObject = objectTransform;
-        PickedUpObject.parent = BeaverTransform;
     }
 }
