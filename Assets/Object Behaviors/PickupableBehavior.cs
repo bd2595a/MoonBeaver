@@ -6,21 +6,16 @@ using UnityEngine;
 /// </summary>
 public class CarryBehavior : BaseBehavior
 {
-    /// <summary>
-    /// Default Constructor 
-    /// </summary>
-    /// <param name="baseGameObject"> The object to act on </param>
-    public CarryBehavior(GameObject baseGameObject)
-        : base(baseGameObject)
-    {
-        Behavior = BeaverBehaviors.PickUp;
-    }
+    public CarryBehavior()
+	{
+        Type = BeaverBehaviorType.Carry; 
+	} 
 
     /// <summary>
     /// Beaver will pick up the object if it's not already holding it 
     /// </summary>
     /// <param name="objectTransform"> Transform of the object to try to pick up </param>
-    protected override void Execute()
+    public override void Execute()
     {
         if (BeaverAttributesComponent.CarriedObject == null)
         {

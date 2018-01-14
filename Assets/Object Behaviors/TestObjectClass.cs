@@ -5,7 +5,7 @@ public class TestObjectClass : BaseInteractableObjectComponent
 {
     private void Start()
     {
-        Behaviors.Add(new CompressableBehavior(gameObject));
-        Behaviors.Add(new CarryBehavior(gameObject));
+        AddBehavior<CompressableBehavior>(this.gameObject);
+        AddBehavior<CarryBehavior>(this.gameObject);
     }
 }

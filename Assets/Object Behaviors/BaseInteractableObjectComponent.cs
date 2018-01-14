@@ -12,26 +12,28 @@ public abstract class BaseInteractableObjectComponent : MonoBehaviour
     /// </summary>
     protected BaseInteractableObjectComponent()
     {
-        Behaviors = new List<BaseBehavior>();
+        Behaviors = new Dictionary<BeaverBehaviorType, BaseBehavior>();
     }
 
-    public List<BaseBehavior> Behaviors { get; set; }
+    private Dictionary<BeaverBehaviorType, BaseBehavior> Behaviors { get; set; }
+
+    public void AddBehavior<T>(GameObject attachedGameObject) where T : BaseBehavior, new()
+    {
+        var behavior = new T();
+        behavior.SetGameObject(attachedGameObject);
+        Behaviors[behavior.Type] = behavior;
+    }
 
     /// <summary>
-    /// Tries to executes the behavior. Breaks after the first successful execution 
+    /// Tries to executes the behavior
     /// </summary>
-    /// <param name="behaviorCommand"> The Beaver Behavior to try to execute </param>
+    /// <param name="behaviorCommand"> The Beaver Type to try to execute </param>
     /// <returns>Whether a behavior was executed successfully</returns>
-    public bool ExecuteBehaviors(BeaverBehaviors behaviorCommand)
+    public void ExecuteBehavior(BeaverBehaviorType behaviorCommand)
     {
-        foreach (var behavior in Behaviors)
+        if (Behaviors.ContainsKey(behaviorCommand))
         {
-            if (behavior.TryExecute(behaviorCommand))
-            {
-                return true;
-            }
+            Behaviors[behaviorCommand].Execute();
         }
-
-        return false;
     }
 }

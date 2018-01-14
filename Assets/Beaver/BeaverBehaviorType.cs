@@ -3,10 +3,10 @@
     /// <summary>
     /// Enum for beaver actions. Used to resolve input to a method 
     /// </summary>
-    public enum BeaverBehaviors
+    public enum BeaverBehaviorType
     {
         None,
-        PickUp,
+        Carry,
         Compress,
         Destroy
     }

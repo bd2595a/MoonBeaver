@@ -6,20 +6,15 @@ using UnityEngine;
 /// </summary>
 public class CompressableBehavior : BaseBehavior
 {
+    public CompressableBehavior()
+    {
+        Type = BeaverBehaviorType.Compress;
+    }
+
     /// <summary>
     /// The factor to compress or expand an object by 
     /// </summary>
     private readonly int objectCompressRatio = 2;
-
-    /// <summary>
-    /// Default Constructor 
-    /// </summary>
-    /// <param name="baseGameObject"> Object to operate on </param>
-    public CompressableBehavior(GameObject baseGameObject)
-        : base(baseGameObject)
-    {
-        Behavior = BeaverBehaviors.Compress;
-    }
 
     /// <summary>
     /// Whether or not the object is compressed or still compressable 
@@ -29,7 +24,7 @@ public class CompressableBehavior : BaseBehavior
     /// <summary>
     /// Compresses the object if !IsCompressed. Else undoes it 
     /// </summary>
-    protected override void Execute()
+    public override void Execute()
     {
         if (IsCompressed)
         {

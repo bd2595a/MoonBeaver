@@ -6,20 +6,15 @@ using UnityEngine;
 /// </summary>
 public class DestroyableBehavior : BaseBehavior
 {
-    /// <summary>
-    /// Default Constructor 
-    /// </summary>
-    /// <param name="baseGameObject"> BaseObject to act upon </param>
-    public DestroyableBehavior(GameObject baseGameObject)
-        : base(baseGameObject)
+    public DestroyableBehavior()
     {
-        Behavior = BeaverBehaviors.Destroy;
+        Type = BeaverBehaviorType.Destroy;
     }
 
     /// <summary>
     /// Destroys this object 
     /// </summary>
-    protected override void Execute()
+    public override void Execute()
     {
         Object.DestroyObject(BaseGameObject);
     }

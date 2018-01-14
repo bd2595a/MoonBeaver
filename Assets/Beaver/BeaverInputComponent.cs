@@ -9,23 +9,23 @@ public class BeaverInputComponent
     /// <summary>
     /// Takes in player input and resolves it to a BeaverAction 
     /// </summary>
-    /// <returns> Corresponding BeaverBehaviors </returns>
-    public BeaverBehaviors GetAction()
+    /// <returns> Corresponding BeaverBehaviorType </returns>
+    public BeaverBehaviorType GetAction()
     {
         if (Input.anyKey)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                return BeaverBehaviors.PickUp;
+                return BeaverBehaviorType.Carry;
             }
 
             if (Input.GetKeyDown(KeyCode.N))
             {
-                return BeaverBehaviors.Compress;
+                return BeaverBehaviorType.Compress;
             }
         }
 
-        return BeaverBehaviors.None;
+        return BeaverBehaviorType.None;
     }
 
     /// <summary>

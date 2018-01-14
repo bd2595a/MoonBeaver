@@ -23,12 +23,12 @@ public class BeaverInteractComponent
     /// Attempts to call the behavior on the object 
     /// </summary>
     /// <param name="beaverBehavior"> BeaverBehaviorEnum behavior to execute </param>
-    public void CallBehavior(BeaverBehaviors beaverBehavior)
+    public void CallBehavior(BeaverBehaviorType beaverBehavior)
     {
-        if (beaverBehavior != BeaverBehaviors.None)
+        if (beaverBehavior != BeaverBehaviorType.None)
         {
             // Can drop an item at any time
-            if (beaverBehavior == BeaverBehaviors.PickUp && BeaverAttributesComponent.CarriedObject != null)
+            if (beaverBehavior == BeaverBehaviorType.Carry && BeaverAttributesComponent.CarriedObject != null)
             {
                 DropObject();
                 return;
@@ -40,7 +40,7 @@ public class BeaverInteractComponent
                 var interactObjectBehaviors = transformInfront.gameObject.GetComponent<BaseInteractableObjectComponent>();
                 if (interactObjectBehaviors != null)
                 {
-                    var isValidBehavior = interactObjectBehaviors.ExecuteBehaviors(beaverBehavior);
+                    interactObjectBehaviors.ExecuteBehavior(beaverBehavior);
                 }
             }
         }
